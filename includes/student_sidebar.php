@@ -158,7 +158,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                                         <label for="profile_photo" class="form-label">Choose Photo</label>
                                         <input type="file" name="profile_photo" id="profile_photo"
                                             class="form-control" accept="image/*" required>
-                                        <div class="form-text">Maximum size: 2MB. Supported formats: JPG, PNG</div>
+                                        <div class="form-text">Maximum size: 5MB. Supported formats: JPG, PNG</div>
                                     </div>
                                     <div id="imagePreview" class="text-center mt-3" style="display: none;">
                                         <img src="" alt="Preview" class="img-fluid rounded" style="max-height: 200px;">
@@ -244,9 +244,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
             const previewImg = preview.querySelector('img');
 
             if (file) {
-                // Validate file size (2MB max)
-                if (file.size > 2 * 1024 * 1024) {
-                    alert('File size must be less than 2MB');
+                // Validate file size (5MB max)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File size must be less than 5MB');
                     e.target.value = '';
                     preview.style.display = 'none';
                     return;

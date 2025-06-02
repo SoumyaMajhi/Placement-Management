@@ -6,7 +6,8 @@ $admin = check_admin_session();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_photo'])) {
     $file = $_FILES['profile_photo'];
     $allowedTypes = ['image/jpeg', 'image/png'];
-    $maxSize = 2 * 1024 * 1024; // 2MB
+    // $maxSize = 2 * 1024 * 1024; // 2MB
+    $maxSize = 5 * 1024 * 1024; // 5MB
 
     // Validate file
     if ($file['error'] === UPLOAD_ERR_OK) {
@@ -45,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_photo'])) {
                 $_SESSION['error_message'] = 'Invalid file type. Please upload JPG or PNG files only.';
             }
         } else {
-            $_SESSION['error_message'] = 'File size must be less than 2MB.';
+            $_SESSION['error_message'] = 'File size must be less than 5MB.';
         }
     } else {
         $_SESSION['error_message'] = 'Error uploading file. Please try again.';
